@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Выбор БД Лоцмана";
+}
+
+<h2>Шаг 1. Выбор БД</h2>
+
+@if (!string.IsNullOrEmpty(ViewBag.ErrCode as string))
+{
+    <p>GetDBList errCode: @ViewBag.ErrCode</p>
+}
+
+<p>Сырой вывод GetDBList:</p>
+<pre>@(ViewBag.DbList ?? "(пусто)")</pre>
+
+<form method="post">
+    <label>Имя БД:</label>
+    <input type="text" name="dbName" value="stelsPLMProd2" />
+    <button type="submit">Далее</button>
+</form>

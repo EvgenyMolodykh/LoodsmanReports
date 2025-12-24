@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Поиск в Лоцмане";
+}
+
+<h2>Шаг 2. Поиск объекта (БД: @ViewBag.DbName)</h2>
+
+<form method="post">
+    <div>
+        <label>Тип объекта (typeName):</label>
+        <input type="text" name="typeName" value="@((ViewBag.Type ?? "TASK"))" />
+    </div>
+    <div>
+        <label>Условие (condition):</label>
+        <input type="text" name="condition" value="@((ViewBag.Cond ?? "1=1"))" style="width:400px;" />
+    </div>
+    <button type="submit">Искать</button>
+</form>
+
+@if (ViewBag.ErrCode != null)
+{
+    <p>FindObjects errCode: @ViewBag.ErrCode</p>
+    <p>FindObjects errMsg: @ViewBag.ErrMsg</p>
+}
+
+@if (ViewBag.Result != null)
+{
+    <h3>Raw result:</h3>
+    <pre>@ViewBag.Result</pre>
+}
