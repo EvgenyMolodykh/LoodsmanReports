@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Text;
+using System.Web.Mvc;
 using Loodsman.Core;   // ссылка на библиотеку
 
 namespace FrontLoodsman.Controllers
@@ -44,6 +45,7 @@ namespace FrontLoodsman.Controllers
 
             ViewBag.DbName = TempData["DbName"].ToString();
             TempData.Keep("DbName");
+
             return View();
         }
 
@@ -77,7 +79,19 @@ namespace FrontLoodsman.Controllers
             ViewBag.Cond = condition;
             ViewBag.ErrCode = errCode;
             ViewBag.ErrMsg = errMsg;
-            ViewBag.Result = result == null ? "null" : result.ToString();
+
+            // result часто приходит как byte[] (XML/JSON от Лоцмана)
+            if (result is byte[] bytes)
+            {
+                // предполагаем UTF‑8; если документация Лоцман говорит про другую
+                // кодировку, здесь её и поставь
+                string text = Encoding.UTF8.GetString(bytes);
+                ViewBag.Result = text;
+            }
+            else
+            {
+                ViewBag.Result = result == null ? "null" : result.ToString();
+            }
 
             return View();
         }
