@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36301.6 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoodsmanOld", "LoodsmanOld\LoodsmanOld.csproj", "{B60F2D40-26AA-4370-A9E7-4A32C68C302A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontLoodsman", "FrontLoodsman\FrontLoodsman.csproj", "{4FF47480-F755-4E93-973C-9881E1860849}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B60F2D40-26AA-4370-A9E7-4A32C68C302A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B60F2D40-26AA-4370-A9E7-4A32C68C302A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B60F2D40-26AA-4370-A9E7-4A32C68C302A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B60F2D40-26AA-4370-A9E7-4A32C68C302A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FF47480-F755-4E93-973C-9881E1860849}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FF47480-F755-4E93-973C-9881E1860849}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FF47480-F755-4E93-973C-9881E1860849}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FF47480-F755-4E93-973C-9881E1860849}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {250D3F2E-F775-4E46-9764-2196481E3D1C}
+	EndGlobalSection
+EndGlobal
