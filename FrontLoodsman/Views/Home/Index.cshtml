@@ -1,33 +1,35 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Отчёты Лоцман";
 }
 
-<main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
-    </section>
+<div class="jumbotron">
+    <h1>Отчёты по ЛОЦМАН:PLM</h1>
+    <p class="lead">
+        Веб-интерфейс для просмотра данных Лоцмана: выбор базы данных и поиск объектов.
+    </p>
+    <p>
+        @Html.ActionLink("Перейти к выбору БД", "SelectDb", "Loodsman", null, new { @class = "btn btn-primary btn-lg" })
+    </p>
+</div>
 
-    <div class="row">
-        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-            <h2 id="gettingStartedTitle">Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="librariesTitle">
-            <h2 id="librariesTitle">Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="hostingTitle">
-            <h2 id="hostingTitle">Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </section>
+<div class="row">
+    <div class="col-md-4">
+        <h2>Шаг 1. База данных</h2>
+        <p>Выберите нужную БД Лоцмана и сохраните её для работы в текущей сессии.</p>
+        <p>
+            @Html.ActionLink("Выбрать БД", "SelectDb", "Loodsman", null, new { @class = "btn btn-default" })
+        </p>
     </div>
-</main>
+    <div class="col-md-4">
+        <h2>Шаг 2. Поиск объектов</h2>
+        <p>После выбора БД выполняйте поиск объектов по типу и условиям (задачи, документы и др.).</p>
+        <p>
+            @Html.ActionLink("Поиск объектов", "Search", "Loodsman", null, new { @class = "btn btn-default" })
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Отчёты (дальше)</h2>
+        <p>Здесь позже добавим отдельные страницы с готовыми отчётами по задачам и изделиям.</p>
+        <p><span class="text-muted">Раздел в разработке</span></p>
+    </div>
+</div>
