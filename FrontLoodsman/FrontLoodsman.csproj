@@ -6,4 +6,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="Ascon.Plm.ServerApi">
+      <HintPath>..\LoodsmanOld\lib\Ascon.Plm.ServerApi.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

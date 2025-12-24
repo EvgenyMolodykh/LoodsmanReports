@@ -1,55 +1,36 @@
 ﻿using System;
+using Ascon.Plm.ServerApi;
+using Ascon.Plm.AppServer.Contracts;
 
-namespace LoodsmanBackend
+class Program
 {
-    class Program
+    static void Main()
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Loodsman backend test (.NET Framework 4.8)");
+        var factory = new ConnectionFactory();
 
-            Console.Write("Введите хост (по умолчанию ascon): ");
-            var host = Console.ReadLine();
-            if (string.IsNullOrWhiteSpace(host))
-                host = "ascon";
+        // твой хост и порт
+        IConnection connection = factory.CreateConnection("ascon", 8076);
 
-            int port = 8076; // подставь свой порт сервера приложений
+        IMainSystem main = connection.MainSystem;
 
-            try
-            {
-                using (var api = new LoodsmanApi(host, port))
-                {
-                    // 1. Получаем список баз
-                    var dbList = api.GetDbList();
-                    Console.WriteLine("Список баз данных:");
-                    foreach (var db in dbList)
-                        Console.WriteLine($" - {db}");
+        object code = 0;
+        object message = "";
 
-                    // 2. Выбираем базу
-                    Console.WriteLine();
-                    Console.Write("Введите имя базы для подключения: ");
-                    var dbName = Console.ReadLine();
+        // Получить список БД
+        main.GetDBList(ref code, ref message);
+        Console.WriteLine($"GetDBList: code = {code}, message = {message}");
 
-                    if (string.IsNullOrWhiteSpace(dbName))
-                    {
-                        Console.WriteLine("База не задана, выходим.");
-                        return;
-                    }
+        // Ввести имя БД
+        Console.Write("Введите имя БД Лоцмана: ");
+        string dbName = Console.ReadLine();
 
-                    // 3. Подключаемся к выбранной базе
-                    api.ConnectToDb(dbName);
-                    Console.WriteLine($"Подключение к базе {dbName} успешно.");
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Ошибка:");
-                Console.WriteLine(ex.Message);
-            }
+        object connCode;
+        object connMsg;
 
-            Console.WriteLine();
-            Console.WriteLine("Press Enter to exit...");
-            Console.ReadLine();
-        }
+        // Подключиться к выбранной БД
+        main.ConnectToDB(dbName, out connCode, out connMsg);
+        Console.WriteLine($"ConnectToDB: code = {connCode}, message = {connMsg}");
+
+        Console.ReadLine();
     }
 }
