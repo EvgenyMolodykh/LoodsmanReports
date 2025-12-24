@@ -37,7 +37,7 @@ namespace FrontLoodsman.Controllers
         }
 
         // Шаг 2: форма поиска (GET)
-        [HttpGet]
+        [HttpGet] 
         public ActionResult Search()
         {
             if (TempData["DbName"] == null)
