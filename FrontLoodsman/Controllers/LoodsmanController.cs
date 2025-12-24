@@ -29,7 +29,7 @@ namespace FrontLoodsman.Controllers
 
         // Шаг 1: выбор БД (POST)
         [HttpPost]
-        public ActionResult SelectDb(string dbName)
+        public ActionResult SelectDb(string dbName) 
         {
             // сохраняем выбранную БД между запросами
             TempData["DbName"] = dbName;
