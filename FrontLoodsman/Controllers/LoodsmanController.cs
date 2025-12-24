@@ -1,6 +1,6 @@
 ﻿using System.Text;
 using System.Web.Mvc;
-using Loodsman.Core;   // ссылка на библиотеку
+using Loodsman.Core;   // ссылка на библиотеку LoodsmanApi
 
 namespace FrontLoodsman.Controllers
 {
@@ -80,11 +80,10 @@ namespace FrontLoodsman.Controllers
             ViewBag.ErrCode = errCode;
             ViewBag.ErrMsg = errMsg;
 
-            // result часто приходит как byte[] (XML/JSON от Лоцмана)
+            // нормально раскодируем результат
             if (result is byte[] bytes)
             {
-                // предполагаем UTF‑8; если документация Лоцман говорит про другую
-                // кодировку, здесь её и поставь
+                // если сервер возвращает XML/JSON в UTF‑8
                 string text = Encoding.UTF8.GetString(bytes);
                 ViewBag.Result = text;
             }
